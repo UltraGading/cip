@@ -1,0 +1,19 @@
+{
+    "name": "Resource Management",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "Makes businesses more productive",
+    "background": {
+      "service_worker": "url-block.js"
+    },
+    "declarative_net_request": {
+      "rule_resources": [
+        {
+          "id": "ruleset_1",
+          "enabled": true,
+          "path": "rules_1.json"
+        }
+      ]
+    },
+    "permissions": ["declarativeNetRequest", "declarativeNetRequestFeedback"]
+  }
