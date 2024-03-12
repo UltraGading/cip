@@ -1,19 +1,23 @@
 {
-    "name": "Resource Management",
-    "version": "1.0",
-    "manifest_version": 3,
-    "description": "Makes businesses more productive",
-    "background": {
-      "service_worker": "url-block.js"
-    },
-    "declarative_net_request": {
-      "rule_resources": [
-        {
-          "id": "ruleset_1",
-          "enabled": true,
-          "path": "rules_1.json"
-        }
-      ]
-    },
-    "permissions": ["declarativeNetRequest", "declarativeNetRequestFeedback"]
+  "manifest_version": 3,
+  "name": "Resource Management Extension",
+  "version": "1.0",
+  "description": "Manage your tasks efficiently.",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon-16.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
   }
+}
