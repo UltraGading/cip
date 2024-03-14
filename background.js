@@ -22,3 +22,4 @@ function scheduleTask(newTask) {
         });
     });
 }
+export let tasks;

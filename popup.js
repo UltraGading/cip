@@ -9,3 +9,23 @@ document.addEventListener("DOMContentLoaded", function() {
       scheduleTask(newTask);
   });
 });
+document.addEventListener('DOMContentLoaded', function() {
+  const saveBtn = document.getElementById('saveBtn');
+  saveBtn.addEventListener('click', saveResourceAllocation);
+});
+
+function saveResourceAllocation() {
+  const tasks = document.querySelectorAll('.task');
+  const resourceAllocations = [];
+
+  tasks.forEach(task => {
+    const time = parseFloat(task.querySelector('#time').value);
+    const budget = parseFloat(task.querySelector('#budget').value);
+    const personnel = parseFloat(task.querySelector('#personnel').value);
+    
+    resourceAllocations.push({ time, budget, personnel });
+  });
+
+  // Here, you can update the task data structure with resource allocations
+  console.log('Resource allocations:', resourceAllocations);
+}
