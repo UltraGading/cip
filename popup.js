@@ -29,3 +29,11 @@ function saveResourceAllocation() {
   // Here, you can update the task data structure with resource allocations
   console.log('Resource allocations:', resourceAllocations);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('trackButton').addEventListener('click', () => {
+    const resource_id = document.getElementById('resourceId').value;
+    const quantity_used = document.getElementById('quantityUsed').value;
+    chrome.runtime.sendMessage({ action: 'trackUsage', data: { resource_id, quantity_used } });
+  });
+});
