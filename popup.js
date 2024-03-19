@@ -37,3 +37,28 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.runtime.sendMessage({ action: 'trackUsage', data: { resource_id, quantity_used } });
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  // Display current budget
+  chrome.storage.local.get('budget', (data) => {
+    const budgetDisplay = document.getElementById('budgetDisplay');
+    budgetDisplay.textContent = `Current Budget: ${data.budget || 0}`;
+  });
+
+  // Add button click event
+  document.getElementById('addButton').addEventListener('click', () => {
+    const amount = parseFloat(document.getElementById('amountInput').value);
+    if (!isNaN(amount)) {
+      updateBudget(amount);
+      location.reload(); // Refresh popup to update budget display
+    }
+  });
+
+  // Subtract button click event
+  document.getElementById('subtractButton').addEventListener('click', () => {
+    const amount = parseFloat(document.getElementById('amountInput').value);
+    if (!isNaN(amount)) {
+      updateBudget(-amount); // Subtracting amount
+      location.reload(); // Refresh popup to update budget display
+    }
+  });
+});

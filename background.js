@@ -22,3 +22,28 @@ function scheduleTask(newTask) {
         });
     });
 }
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === 'trackUsage') {
+      // Send a message to the content script to track resource usage
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, { action: 'trackUsage', data: message.data });
+      });
+    }
+});
+
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.storage.local.get('budget', (data) => {
+      if (!data.budget) {
+        chrome.storage.local.set({ 'budget': 0 });
+      }
+    });
+  });
+
+function updateBudget(amount) {
+    chrome.storage.local.get('budget', (data) => {
+      let currentBudget = data.budget || 0;
+      currentBudget += amount;
+      chrome.storage.local.set({ 'budget': currentBudget });
+    });
+}
+  
