@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   saveBtn.addEventListener('click', saveResourceAllocation);
 });
 
-function saveResourceAllocation() {
+function saveResourceAllocation() { //capital allocation(2)
   const tasks = document.querySelectorAll('.task');
   const resourceAllocations = [];
 
@@ -30,14 +30,15 @@ function saveResourceAllocation() {
   console.log('Resource allocations:', resourceAllocations);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => { //tracking(3)
   document.getElementById('trackButton').addEventListener('click', () => {
     const resource_id = document.getElementById('resourceId').value;
     const quantity_used = document.getElementById('quantityUsed').value;
     chrome.runtime.sendMessage({ action: 'trackUsage', data: { resource_id, quantity_used } });
   });
 });
-document.addEventListener('DOMContentLoaded', () => {
+
+document.addEventListener('DOMContentLoaded', () => { //budgeting(4)
   // Display current budget
   chrome.storage.local.get('budget', (data) => {
     const budgetDisplay = document.getElementById('budgetDisplay');
