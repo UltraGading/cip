@@ -63,3 +63,66 @@ document.addEventListener('DOMContentLoaded', () => { //budgeting(4)
     }
   });
 });
+//analytics (might require Chart.js)
+// Sample data for demonstration purposes
+const projectData = [
+  { project: 'Project A', tasksCompleted: 20, tasksPending: 5 },
+  { project: 'Project B', tasksCompleted: 15, tasksPending: 10 },
+  { project: 'Project C', tasksCompleted: 25, tasksPending: 3 },
+];
+// Function to generate a bar chart using Chart.js
+function generateBarChart(data) {
+  const labels = data.map(item => item.project);
+  const completedTasks = data.map(item => item.tasksCompleted);
+  const pendingTasks = data.map(item => item.tasksPending);
+
+  const ctx = document.getElementById('barChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Completed Tasks',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1,
+          data: completedTasks,
+        },
+        {
+          label: 'Pending Tasks',
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1,
+          data: pendingTasks,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+}
+// Function to analyze project data and generate insights
+function generateInsights(data) {
+  const totalCompleted = data.reduce((acc, item) => acc + item.tasksCompleted, 0);
+  const totalPending = data.reduce((acc, item) => acc + item.tasksPending, 0);
+  const totalTasks = totalCompleted + totalPending;
+
+  const completionRate = (totalCompleted / totalTasks) * 100;
+  const pendingRate = (totalPending / totalTasks) * 100;
+
+  console.log(`Completion Rate: ${completionRate.toFixed(2)}%`);
+  console.log(`Pending Rate: ${pendingRate.toFixed(2)}%`);
+}
+// Sample function to initialize reporting and analytics
+function initializeReporting() {
+  generateBarChart(projectData);
+  generateInsights(projectData);
+}
+// Call the initialization function when the DOM is ready
+document.addEventListener('DOMContentLoaded', initializeReporting);
