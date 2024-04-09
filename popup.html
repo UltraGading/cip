@@ -6,29 +6,30 @@
 </head>
 <body>
     <h1>Tabs Manager</h1>
-    <label for="taskName">Task Name:</label><br>
-    <input type="text" id="taskName" name="taskName"><br>
-    <label for="startDate">Start Date:</label><br>
-    <input type="date" id="startDate" name="startDate"><br>
-    <label for="endDate">End Date:</label><br>
-    <input type="date" id="endDate" name="endDate"><br>
-    <label for="priority">Priority:</label><br>
-    <select id="priority" name="priority">
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
-    </select><br>
-    <button id="scheduleButton">Schedule Task</button>
-    <div id="tasks">
-        <div class="task">
-          <h3>Task 1</h3>
-          <label for="time">Time:</label>
-          <input type="number" id="time" value="0">
-          <label for="budget">Budget:</label>
-          <input type="number" id="budget" value="0">
-          <label for="personnel">Personnel:</label>
-          <input type="number" id="personnel" value="0">
-        </div>
+    <button class="tablink" onclick="openPage('Groups', this, 'red')">Home</button>
+    <button class="tablink" onclick="openPage('Projects', this, 'green')" id="defaultOpen">News</button>
+    <button class="tablink" onclick="openPage('Budget', this, 'blue')">Contact</button>
+    <button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
+    
+    <div id="Groups" class="tabcontent">
+      <h3>Groups</h3>
+      <p></p>
+    </div>
+    
+    <div id="Project" class="tabcontent">
+      <h3>Projects</h3>
+      <p></p>
+    </div>
+    
+    <div id="Budget" class="tabcontent">
+      <h3>Budget</h3>
+      <p></p>
+    </div>
+    
+    <div id="About" class="tabcontent">
+      <h3>About</h3>
+      <p>Who we are and what we do.</p>
+    </div>
       </div>
 </body>
 </html>
