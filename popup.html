@@ -1,36 +1,124 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Resource Management</title>
-    <script src="popup.js"></script>
+    <title>Resource Management Hub</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
-    <h1>Resource Management Hub</h1>
-    <button class="tablink" onclick="openPage('Groups', this, 'red')">Tab Manager</button>
-    <button class="tablink" onclick="openPage('Projects', this, 'green')" id="defaultOpen">Projects</button>
-    <button class="tablink" onclick="openPage('Budget', this, 'blue')">Budget</button>
-    <button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
-    
-    <div id="Groups" class="tabcontent">
-      <h3>Groups</h3>
-      <button class="button1">Create a Group</button>
-      <p></p>
+    <div class="popup-container">
+        <div class="tabs">
+            <button class="tablink" onclick="openPage(event, 'TabManager')" id="defaultOpen">Tab Manager</button>
+            <button class="tablink" onclick="openPage(event,'Projects')">Projects</button>
+            <button class="tablink" onclick="openPage(event, 'Budget')">Budget</button>
+            <button class="tablink" onclick="openPage(event, 'About')">Timer</button>
+        </div>
+        <div id="TabManager" class="tabcontent">
+          <div class="page1-center-rectangle">
+              <div class="page1-left-panel">
+                  <button class="page1-red-button">Create a Group</button>
+                  <button class="back-button" onclick="backtoMenu()">Back</button>
+              </div>
+              <div class="page1-right-panel">
+                  <h3>Groups</h3>
+                    <button class="group-button" onclick="viewGroup()">Group Name 1</button>
+                    <button class="group-button" onclick="viewGroup()">Group Name 2</button>
+                    <button class="group-button" onclick="viewGroup()">Group Name 3</button>
+                    <button class="group-button" onclick="viewGroup()">Group Name 4</button>
+                    <div class="group">
+                      <input class="tab-button" onclick="viewGroup()" value="[Name]"></input>
+                      <input class="tab-button" onclick="viewGroup()" value="[Name]"></input>
+                      <input class="tab-button" onclick="viewGroup()" value="[Name]"></input>
+                      <input class="tab-button" onclick="viewGroup()" value="[Name]"></input>
+                      <input class="tab-button" onclick="viewGroup()" value="[Name]"></input>
+                      <input class="tab-button" onclick="viewGroup()" value="[Name]"></input>
+                    </div>
+              </div>
+          </div>
+        </div>
+        <script>
+            document.getElementById("defaultOpen").click();
+        </script>
+        <div id="Projects" class="tabcontent">
+            <div class="main-div">
+                <!-- Top div -->
+                <div id="top-div">
+                    <div class="button-row">
+                        <button class="top-button" onclick="createWindow()" ondrop="drop(event)" ondragover="allowDrop(event)">+</button>
+                        <button class="top-button" onclick="createWindow()" ondrop="drop(event)" ondragover="allowDrop(event)">+</button>
+                        <button class="top-button" onclick="createWindow()" ondrop="drop(event)" ondragover="allowDrop(event)">+</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="top-button" onclick="createWindow()" ondrop="drop(event)" ondragover="allowDrop(event)">+</button>
+                        <button class="top-button" onclick="createWindow()" ondrop="drop(event)" ondragover="allowDrop(event)">+</button>
+                        <button class="top-button" onclick="createWindow()" ondrop="drop(event)" ondragover="allowDrop(event)">+</button>
+                    </div>
+                </div>
+                <!-- Bottom div -->
+                <div id="bottom-div">
+                    <div class="button-row">
+                        <button class="bottom-button" draggable="true" ondragstart="drag(event)">A</button>
+                        <button class="bottom-button" draggable="true" ondragstart="drag(event)">B</button>
+                        <button class="bottom-button" draggable="true" ondragstart="drag(event)">C</button>
+                        <button class="bottom-button" draggable="true" ondragstart="drag(event)">D</button>
+                        <button class="bottom-button" draggable="true" ondragstart="drag(event)">E</button>
+                        <button class="bottom-button" draggable="true" ondragstart="drag(event)">F</button>
+                        <button class="bottom-button" draggable="true" ondragstart="drag(event)">G</button>
+                    </div>
+                    <div class="button-row">
+                        <button class="bottom-button">H</button>
+                        <button class="bottom-button">I</button>
+                        <button class="bottom-button">J</button>
+                        <button class="bottom-button">K</button>
+                        <button class="bottom-button">L</button>
+                        <button class="bottom-button">M</button>
+                        <button class="bottom-button">N</button>
+                    </div>
+                </div>
+                <div id="create-window">
+                    <p class="window-text">Project Title</p>
+                    <input class="project-input" type="text"></input>
+                    <button class="image-button">Upload Image</button>
+                    <p class="window-text">Project Deadline</p>
+                    <input class="date-input" type="date"></input>
+                    <p class="window-text">Allocate Budget</p>
+                    <input class="budget-input" type="number"></input>
+                    <p class="window-text"></p>
+                    <button class="cancel" onclick="exit()">❌</button>
+                    <button class="create" onclick="exit()">✔️</button>
+                </div>
+            </div>
+        </div>
+        <div id="Budget" class="tabcontent">
+          <div class="page3-center-rectangle">
+              <!-- Left div -->
+              <div class="page3-left-div">
+                  <!-- Text above the input -->
+                  <p>Current Budget:</p>
+                  <!-- Centered input -->
+                  <input type="text" class="input-field">
+              </div>
+
+              <!-- Right div -->
+              <div class="page3-right-div">
+                  <!-- Column of three buttons with input directly above -->
+                  <div class="button-container">
+                      <input type="text" class="button-input">
+                      <div class="project">
+                          <p style="color: white">Project 1</p>
+                      </div>
+                      <input type="text" class="button-input">
+                      <div class="project">
+                          <p style="color: white">Project 2</p>
+                      </div>
+                      <input type="text" class="button-input">
+                      <div class="project">
+                          <p style="color: white">Project 3</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
     </div>
-    
-    <div id="Project" class="tabcontent">
-      <h3>Projects</h3>
-      <p></p>
-    </div>
-    
-    <div id="Budget" class="tabcontent">
-      <h3>Budget</h3>
-      <p></p>
-    </div>
-    
-    <div id="About" class="tabcontent">
-      <h3>About</h3>
-      <p>Who we are and what we do.</p>
-    </div>
-      </div>
 </body>
 </html>

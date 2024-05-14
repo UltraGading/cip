@@ -1,37 +1,226 @@
+/* Base styles */
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
   font-family: Arial, sans-serif;
-  padding: 20px;
 }
 
-h1 {
-  text-align: center;
+/* Popup container */
+.popup-container {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
 }
 
-.task {
-  margin-bottom: 20px;
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+  padding: none;
+  border-bottom: 1px solid #ccc;
+  margin-top: auto;
+  outline: 2px black;
+  background-clip: content-box;
 }
 
-label {
-  display: block;
-}
-
-input {
-  width: 100px;
-  margin-bottom: 10px;
-}
-
-.button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
+.tablink {
+  padding: 5px 10px;
+  background-color: transparent;
   cursor: pointer;
 }
 
-.button1 {border-radius: 100%;}
+.tabcontent{
+  display: none;
+}
 
-button:hover {
-  background-color: #0056b3;
+/* Center rectangle */
+.page1-center-rectangle {
+  display: flex;
+  height: 231px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Left panel */
+.page1-left-panel {
+  width: 145px;
+  background-color: #d3d3d3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Red button */
+.page1-red-button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+/* Right panel */
+.page1-right-panel {
+  width: 128px;
+  background-color: #505050;
+  color: white;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page1-right-panel h3 {
+  margin: 0 0 10px 0;
+}
+
+.group-button {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 5px;
+  border: none;
+  background-color: #666;
+  color: white;
+  cursor: pointer;
+}
+
+.group {
+  background-color: #2CD3BF;
+  padding: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+  width: 116px;
+  height: 170px;
+  align-items: center;
+}
+
+.tab-button {
+  display: none;
+  width: 100%;
+  height: 19px;
+  margin-bottom: 9px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.back-button{
+  display: none;
+}
+
+#main-div {
+    width: 273px;
+    height: 231px;
+    border: 1px solid black;
+    position:relative
+}
+/* Divs */
+#top-div {
+    width: 100%;
+    height: 133px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ABABAB;
+}
+#bottom-div {
+    width: 100%;
+    height: 98px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #3E3E3E;
+}
+/* Button styles */
+button.top-button {
+    width: 80px;
+    height: 50px;
+    margin: 5px 3px;
+    gap: 10px;
+}
+button.bottom-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 6.5px 2.5px;
+}
+
+#create-window{
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    background-color: #C4C4C4;
+    top: 30%;
+    width: 300px;
+    display: none;
+}
+
+.window-text {
+    line-height: 0.01;
+}
+
+.page3-center-rectangle {
+  width: 273px;
+  height: 231px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page3-left-div {
+    width: 145px;
+    height: 80%;
+    text-align: center;
+    padding-top: 75px; /* Centering the input vertically */
+    background-color: #ABABAB;
+}
+
+.page3-right-div {
+    width: 128px;
+    height: 110%;
+    padding-top: 5px;/* Adding space at the top for the inputs */
+    align-items: center;
+    background-color: #3E3E3E;
+}
+
+.input-field {
+    width: 103px;
+    height: 25px;
+    display: block;
+    margin: 0 auto; /* Center the input within the div */
+}
+
+.button-input{
+  width: 78px;
+  height: 17px;
+  display: block;
+  margin: 3px auto;
+}
+
+.project {
+  width: 80px;
+  height: 50px;
+  margin: 3px auto 0; /* Add margin at the top of the button */
+  display: block;
+  background-color: #6f8d68;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
