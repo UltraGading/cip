@@ -4,9 +4,6 @@
   "version": "1.0",
   "description": "Manage your tasks efficiently.",
   "permissions": ["storage"],
-  "background": {
-    "service_worker": "background.js"
-  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
